@@ -7,7 +7,7 @@
 FROM ubuntu:14.04
 MAINTAINER Vinay <vnydevops@gmail.com>
 
-ENV JIRA_HOME     /var/atlassian/jira
+ENV JIRA_HOME=/var/atlassian/jira
 ENV JAVA_HOME=/usr/lib/jvm/java-8-oracle
 
 EXPOSE 8080
@@ -15,8 +15,7 @@ EXPOSE 8080
 # Creating JIRA home directory
 RUN mkdir -p                "${JIRA_HOME}" \
     && mkdir -p                "${JIRA_HOME}/caches/indexes" \
-    && chmod -R 700            "${JIRA_HOME}" \
-    && chown -R daemon:daemon  "${JIRA_HOME}"
+    && chmod -R 700            "${JIRA_HOME}"
 
 # Installing JAVA-8
 RUN apt-get update \
